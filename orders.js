@@ -30,27 +30,42 @@
 */
 
 //CODE HERE
-
+class Ticket {
+    constructor(items, orderTime, customerId)
+    {
+        this.items = items;
+        this.orderTime = orderTime;
+        this.customerId = customerId;
+        this.status = 'queued';
+    }
+    updateStatus(newStatus)
+    {
+        this.status = newStatus;
+        console.log(`The order for customer ${this.customerId} is now ${this.status}`);
+    }
+}
 
 
 /*
-    Create a new instance of your class.
-    Save it to a variable called `firstTicket`.
+Create a new instance of your class.
+Save it to a variable called `firstTicket`.
 
-    You can use this sample data or make
-    up your own:
-    food ordered: pizza, bread, and soda
-    ordered at: 7:03 PM
-    customer: 575
+You can use this sample data or make
+up your own:
+food ordered: pizza, bread, and soda
+ordered at: 7:03 PM
+customer: 575
 */
 
 //CODE HERE
+let firstTicket = new Ticket(['pizza', 'bread', 'soda'], '2022-11-11 14:11:00', 1);
 
 
 /*
-    Call the `updateStatus` method on
-    `firstTicket` passing in the string
-    'cooking'
+Call the `updateStatus` method on
+`firstTicket` passing in the string
+'cooking'
 */
 
 //CODE HERE
+firstTicket.updateStatus('cooking');
