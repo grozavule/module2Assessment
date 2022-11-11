@@ -34,8 +34,8 @@ const cart = [
 ]
 
 //CODE HERE
-
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+let sum = cart.reduce((orderTotal, item) => orderTotal + item.price, 0);
+//console.log(sum);
 
 
 //////////////////PROBLEM 2////////////////////
@@ -54,7 +54,12 @@ const cart = [
 */
 
 //CODE HERE
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+    //the coupon value should be subtracted from the cart total BEFORE tax is calculated
+    return ((cartTotal - couponValue) * (1 + tax)).toFixed(2);
+}
 
+//console.log(calcFinalPrice(100, 2.5, .06));
 
 
 //////////////////PROBLEM 3////////////////////
@@ -79,7 +84,15 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
-
+    A restaurant would need to know the following details to complete a delivery order:
+    - customer name (string)
+    * the customer name is made up of letters and spaces
+    - customer address (string)
+    * the address will need to hold numbers, letters, and special characters (ex. '.', '-', ',')
+    - customer phone number (string)
+    * the phone number is a string because I would like it to include parenthesis around the area code and dashes between the prefix and suffix
+    - customer reward points (number)
+    * the rewards points will be a numerical value based on the total amount the customer has spent at the restaurant
 */
 
 /*
@@ -88,3 +101,15 @@ const cart = [
 */
 
 //CODE HERE
+class Customer {
+    constructor(name, address, phoneNumber, rewards)
+    {
+        this.name = name;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.rewards = rewards;
+    }
+}
+
+let customer = new Customer('Eric Drake', '1 Happy St., Nowhere, PA 86753', '1-800-FAKEPHONE', 100);
+//console.log(customer);
